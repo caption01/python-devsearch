@@ -2,7 +2,16 @@
 
 {% block content %}
 
-<h1>Projects Template</h1>
+<hr>
+<h1>Projects</h1>
+
+<ul>
+    {% for project in projects %}
+        <li>Name:
+            <a href="{% url 'project' project.id %}"> {{ project.title }} -- {{ project.description }} </a>
+        </li>
+    {% endfor %}
+</ul>
 
 {% endblock content %}
 
