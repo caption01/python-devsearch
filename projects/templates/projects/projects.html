@@ -2,16 +2,28 @@
 
 {% block content %}
 
-<hr>
 <h1>Projects</h1>
 
-<ul>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Project</th>
+        <th>Positive</th>
+        <th>Votes</th>
+        <th>Created</th>
+        <th></th>
+    </tr>
     {% for project in projects %}
-        <li>Name:
-            <a href="{% url 'project' project.id %}"> {{ project.title }} -- {{ project.description }} </a>
-        </li>
+        <tr>
+            <td>{{ project.id}}</td>
+            <td>{{ project.title}}</td>
+            <td>{{ project.vote_total}}</td>
+            <td>{{ project.vote_ratio}}</td>
+            <td>{{ project.created}}</td>
+            <td><a href="{% url 'project' project.id %}">View</a></td>
+        </tr>
     {% endfor %}
-</ul>
+</table>
 
 {% endblock content %}
 
