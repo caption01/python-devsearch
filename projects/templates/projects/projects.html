@@ -54,7 +54,7 @@
                                 <p>
                                     <a
                                         class="project__author"
-                                        href="profile.html"
+                                        href="{% url 'user-profile' project.owner.id %}"
                                         >{{ project.owner }}</a
                                     >
                                 </p>
