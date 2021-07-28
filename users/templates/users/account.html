@@ -97,7 +97,7 @@
                     <h3 class="settings__title">Projects</h3>
                     <a
                         class="tag tag--pill tag--sub settings__btn tag--lg"
-                        href="#"
+                        href="{% url 'create-project' %}"
                         ><i class="im im-plus"></i> Add Project</a
                     >
                 </div>
@@ -121,12 +121,12 @@
                         <td class="settings__tableActions">
                             <a
                                 class="tag tag--pill tag--main settings__btn"
-                                href="{% url 'edit-account' %}"
+                                href="{% url 'update-project' project.id %}"
                                 ><i class="im im-edit"></i> Edit</a
                             >
                             <a
                                 class="tag tag--pill tag--main settings__btn"
-                                href="#"
+                                href="{% url 'delete-project' project.id %}"
                                 ><i class="im im-x-mark-circle-o"></i> Delete</a
                             >
                         </td>
