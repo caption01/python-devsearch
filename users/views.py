@@ -4,15 +4,19 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.db.models import Q
 
-from .models import Profile
+from .models import Profile, Skill
 from .forms import CustomUserCreationForm, ProfileForm, SkillForm
+from .utility import search_profiles
 
 # Create your views here.
 def profiles(request):
-    profiles = Profile.objects.all()
+    profiles, search_query = search_profiles(request)
+
     context = {
-        'profiles': profiles
+        'profiles': profiles,
+        'search_query': search_query
     }
     return render(request, 'users/profiles.html', context)
 
@@ -108,6 +112,7 @@ def edit_account(request):
     form = ProfileForm(instance=profile)
 
     if request.method == 'POST':
+        print('edit profile', request.POST)
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
