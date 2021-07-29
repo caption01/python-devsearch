@@ -8,16 +8,17 @@
                 <h2>FROM AROUND THE WORLD</h2>
             </div>
 
-            <div class="hero-section__search">
-                <form class="form" action="#" method="get">
+            <div id="searchForm" class="hero-section__search">
+                <form class="form" action="{% url 'profiles' %}" method="get">
                     <div class="form__field">
                         <label for="formInput#search">Search Developers </label>
                         <input
                             class="input input--text"
                             id="formInput#search"
                             type="text"
-                            name="text"
+                            name="search_query"
                             placeholder="Search by developer name"
+                            value="{{ search_query }}"
                         />
                     </div>
 
@@ -50,7 +51,9 @@
                                 />
                                 <div class="dev__meta">
                                     <h3>{{ profile.name }}</h3>
-                                    <h5>{{ prifle.short_intro|slice:"60" }}</h5>
+                                    <h5>
+                                        {{ profile.short_intro|slice:"60" }}
+                                    </h5>
                                 </div>
                             </div>
                             <p class="dev__info">
@@ -70,6 +73,8 @@
             </div>
         </div>
     </section>
+
+    {% include 'pagination.html' with queryset=profiles %}
 </main>
 
 {% endblock content %}
