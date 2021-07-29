@@ -8,16 +8,21 @@ from django.db.models import Q
 
 from .models import Profile, Skill
 from .forms import CustomUserCreationForm, ProfileForm, SkillForm
-from .utility import search_profiles
+from .utility import search_profiles, paginate_profiles
 
 # Create your views here.
 def profiles(request):
     profiles, search_query = search_profiles(request)
+    custom_range, profiles = paginate_profiles(request, profiles, 3)
 
     context = {
         'profiles': profiles,
-        'search_query': search_query
+        'search_query': search_query,
+        'custom_range': custom_range
     }
+
+    print(profiles)
+
     return render(request, 'users/profiles.html', context)
 
 def user_profile(request, pk):
