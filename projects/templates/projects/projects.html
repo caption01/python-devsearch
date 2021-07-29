@@ -8,7 +8,12 @@
             </div>
 
             <div class="hero-section__search">
-                <form class="form" action="{% url 'projects' %}" method="get">
+                <form
+                    id="searchForm"
+                    class="form"
+                    action="{% url 'projects' %}"
+                    method="get"
+                >
                     <div class="form__field">
                         <label for="formInput#search">
                             Search By Projects
