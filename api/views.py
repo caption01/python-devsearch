@@ -1,0 +1,16 @@
+from django.http import HttpResponse
+from django.http.response import JsonResponse
+
+def get_routes(request):
+
+    routes = [
+        {'GET': 'api/projects'},
+        {'GET': 'api/projects/id'},
+        {'POST': 'api/projects/id/vote'},
+
+        {'POST': 'api/users/token'},
+        {'POST': 'api/users/token/refresh'},
+        {'POST': 'api/users/token'},
+    ]
+
+    return JsonResponse(routes, safe=False)
