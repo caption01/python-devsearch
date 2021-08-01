@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'rest_framework',
 
     'corsheaders',
+    
+    'storages',
 ]
 
 SIMPLE_JWT = {
@@ -123,6 +125,17 @@ WSGI_APPLICATION = 'devsearch.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# local DATABASE
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'mydatabase',
+#     }
+# }
+
+# AWS DATABASE
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -192,5 +205,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# S3 SETTING with whitenoise
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_QUERYSTRING_AUTH = False
+
+AWS_ACCESS_KEY_ID = 'AKIAY7C3VWCU562RPCEY'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'devsearch-nutchapon'
