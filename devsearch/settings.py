@@ -125,8 +125,12 @@ WSGI_APPLICATION = 'devsearch.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'devsearch',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'database-1.c3t0kwmmbnmr.ap-southeast-1.rds.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
