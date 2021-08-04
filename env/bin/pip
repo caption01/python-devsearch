@@ -1,4 +1,4 @@
-#!/home/caption01/document/udemy/python/django/env/bin/python3
+#!/Users/nutcha.h/Documents/workspace/udemy/python-devsearch/env/bin/python3.9
 # -*- coding: utf-8 -*-
 import re
 import sys
